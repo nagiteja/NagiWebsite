@@ -1,0 +1,64 @@
+.header{
+    //to add padding to the nav itself.
+    nav{
+        padding:1.0625rem 1.5rem;
+    }
+//   &__logo{
+ //      img{
+
+ //      }
+
+ //  } 
+ // in order to find rem you have to divide pixels by 16. 
+   //mobile menu
+   &__menu{
+       span{
+           display: block;
+           width:26px;
+           height: 2px;
+           background-color: $darkBLue;
+            // This is basically a for loop in which this property will be applied until the last child and will stop after that. This line of code could be replaced by            margin-bottom: 3px;
+           &:not(:last-child){
+               margin-bottom: 3px;
+           }
+
+       }
+
+   }
+
+&__links{
+    //border: 1px solid red;
+    a{
+        position: relative;
+        font-size: $font-sm;
+        color: $grayishBlue;
+        transition: color 200ms ease-in-out;
+        &:not(:last-child){
+            margin-right: 0.625rem;
+        }
+        &::before{
+            content: "";
+            display: block;
+            position: absolute;
+            height: 5px;
+            background: linear-gradient(to right, $limeGreen, $brightCyan);
+            opacity : 0;
+            left: 0;
+            right: 0;
+            bottom: -30px;
+            // the reason why used opacity is here becasue we cannot use the background as a transition. Thats the limitation.
+            transition: opacity 200ms ease-in-out;
+        
+        }
+
+
+        &:hover {
+            color: $darkBLue;
+            //so basiclaly what this command does is when your mouse is on the object the stuff underneath will happen.
+            &::before{
+                opacity: 1; 
+            }
+        }
+    }
+}
+}
